@@ -100,6 +100,7 @@ void hashmap_insert(struct provider_hashmap *hashmap, struct provider *p,
 
     int m = get_idx(hashmap, token, tokenlen);
     if (hashmap->arr[m]) {
+        provider_free(p);
         printf("collision occured at m %d\n", m);
         return;
     }
